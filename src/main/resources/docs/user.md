@@ -66,6 +66,10 @@ Response Body (failed):
 
 Endpoint: GET /api/users/current
 
+Request Header:
+
+- X-API-TOKEN : TOKEN (mandatory)
+
 Response Body (success):
 
 ```json
@@ -89,12 +93,27 @@ Response Body (failed):
 
 Endpoint: PATCH /api/users/current
 
-Response Body (success):
+Request Header:
+
+- X-API-TOKEN : TOKEN (mandatory)
+
+Request Body:
 
 ```json
 {
   "name": "Bongcoy Aye", // parsial
   "password": "new password" // parsial
+}
+```
+
+Response Body (success):
+
+```json
+{
+  "data": {
+    "name": "Bongcoy Aye",
+    "password": "new password"
+  }
 }
 ```
 
@@ -107,3 +126,17 @@ Response Body (failed):
 ```
 
 ## Logout User
+
+Endpoint: DELETE /api/auth/logout
+
+Request Header:
+
+- X-API-TOKEN : TOKEN (mandatory)
+
+Response Body (success):
+
+```json
+{
+  "data": "OK"
+}
+```
